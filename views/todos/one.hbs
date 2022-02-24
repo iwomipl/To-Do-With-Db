@@ -1,0 +1,12 @@
+<div class="wrapper">
+<div id="top-nav">
+    <h1>Change content of Your ToDo</h1>
+    <form method="POST" action="/{{todo.id}}?_method=PUT" >
+        <input type="text" name="title" value="" placeholder="{{todo.title}}"/>
+        <button type="submit">Change Your ToDo</button>
+    </form>
+</div>
+
+{{>go-to-all-todos}}
+    {{>footer}}
+</div>

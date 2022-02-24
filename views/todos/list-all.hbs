@@ -1,0 +1,35 @@
+<div class="wrapper">
+{{>add-todos-main}}
+<hr>
+<div class="grid-container">
+    {{#each todos}}
+    <div class="divs open" name="{{this.id}}">
+        <p>{{this.title}}</p>
+        <form method="POST" action="edit/{{this.id}}" >
+        <button type="submit" name="edit" value="{{this.id}}">Edit</button>
+    </form>
+        <form method="POST" action="/{{this.id}}" >
+            <button type="submit" name="close" value="{{this.id}}">Close</button>
+        </form>
+        <form method="POST" action="/{{this.id}}?_method=DELETE" >
+            <button type="submit" name="deleteOpened" value="{{this.id}}">Delete</button>
+        </form></div>
+{{/each}}
+    </div>
+<div class="grid-container">
+    {{#each closedTodos}}
+        <div class="divs closed" name="{{this.id}}">
+            <p>{{this.title}}</p>
+            <form method="POST" action="edit/{{this.id}}" >
+                <button type="submit" name="edit" value="{{this.id}}">Edit</button>
+            </form>
+            <form method="POST" action="/{{this.id}}" >
+                <button type="submit" name="open" value="{{this.id}}">Open</button>
+            </form>
+            <form method="POST" action="/{{this.id}}?_method=DELETE" >
+                <button type="submit" name="deleteClosed" value="{{this.id}}">Delete</button>
+            </form></div>
+    {{/each}}
+</div>
+    {{>footer}}
+</div>
